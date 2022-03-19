@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace winh3lixpatcher
 {
@@ -14,6 +9,12 @@ namespace winh3lixpatcher
         // based on https://gist.github.com/jakeajames/b44d8db345769a7149e97f5e155b3d46
         static void Main(string[] args)
         {
+            if (args.Length == 0)
+            {
+                Console.WriteLine("Usage: winh3lixpatcher <path to h3lix rc6 ipa>");
+                Console.ReadKey();
+                return;
+            }
             string h3lix_original_path = args[0];
             bool err = false;
             if (string.IsNullOrEmpty(h3lix_original_path))
